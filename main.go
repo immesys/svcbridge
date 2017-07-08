@@ -51,7 +51,7 @@ func pub(cl *bw2bind.BW2Client, from string, to string, mq chan *bw2bind.SimpleM
 		desturi := to + suffix
 		cl.PublishOrExit(&bw2bind.PublishParams{
 			PayloadObjects: m.POs,
-			URI:            to + suffix,
+			URI:            desturi,
 			AutoChain:      true,
 		})
 		atomic.AddInt64(&total, 1)
