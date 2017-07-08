@@ -49,7 +49,6 @@ func pub(cl *bw2bind.BW2Client, from string, to string, mq chan *bw2bind.SimpleM
 	for m := range mq {
 		suffix := strings.TrimPrefix(m.URI, from)
 		desturi := to + suffix
-		fmt.Printf("Forwarding %s -> %s\n", m.URI, desturi)
 		cl.PublishOrExit(&bw2bind.PublishParams{
 			PayloadObjects: m.POs,
 			URI:            to + suffix,
